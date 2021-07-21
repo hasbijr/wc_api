@@ -27,6 +27,7 @@ $app->withFacades();
 
 $app->withEloquent();
 
+$app->register(Maatwebsite\Excel\ExcelServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings

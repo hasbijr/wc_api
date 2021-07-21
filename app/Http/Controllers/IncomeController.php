@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class IncomeController extends Controller
 {
@@ -20,10 +21,12 @@ class IncomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth:api', ['only' => ['create', 'view', 'excel']]);
-        // $this->middleware('permission:create-income', ['only' => ['create']]);
-        // $this->middleware('permission:view-income', ['only' => ['view', 'excel']]);
+        $this->middleware('auth:api', ['only' => ['create', 'view', 'excel']]);
+        $this->middleware('permission:create-income', ['only' => ['create']]);
+        $this->middleware('permission:view-income', ['only' => ['view', 'excel']]);
     }
+
+
 
     public function create(Request $request, $campaign_id)
     {

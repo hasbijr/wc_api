@@ -55,8 +55,16 @@ return [
     | Supported: "database", "eloquent"
     |
     */
+    'providers' => [
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        ],
+
+        'aliases' => [
+            'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+            ],
 
     'providers' => [
+        
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
